@@ -1,5 +1,5 @@
 apt update && apt upgrade -y
-apt install linux-image-generic
+apt install linux-image-generic -y
 touch /root/.asoundrc
 touch /etc/asound.conf
 echo 'pcm.!default = null;' >> /root/.asoundrc
@@ -24,7 +24,7 @@ echo 'autospawn = no' >> /etc/pulse/client.conf
 usermod -aG pulse-access root
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
-apt install docker-compose
+apt install docker-compose -y
 cd /root
 git clone https://github.com/EvanTrow/docker-spotify.git
 cd docker-spotify
