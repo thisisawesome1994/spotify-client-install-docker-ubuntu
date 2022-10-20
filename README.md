@@ -130,3 +130,11 @@ Done!
 Note: Connect over VNC or via webport.
 There is no password set.
 Only one client is possible per VPS using this setup.
+
+Optional: Create extra null devices.
+
+```
+mknod -m 0666 /dev/null1 c 1 3
+mknod -m 0666 /dev/null2 c 1 3
+
+```
