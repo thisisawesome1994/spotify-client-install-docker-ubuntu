@@ -78,6 +78,9 @@ systemctl --system status pulseaudio.service
 ```
 echo 'default-server = /var/run/pulse/native' >> /etc/pulse/client.conf
 echo 'autospawn = no' >> /etc/pulse/client.conf
+echo 'daemon-binary = /bin/true' >> /etc/pulse/client.conf
+echo 'enable-shm = false' >> /etc/pulse/client.conf
+
 ```
 
 
