@@ -33,7 +33,9 @@ apt install pulseaudio alsa-utils -y
 and run the following to add to the file.
 
 ```
-echo 'snd_aloop' >> /etc/modules
+echo 'snd_aloop index=1' >> /etc/modules
+echo 'snd-aloop index=2' >> /etc/modules
+echo 'snd-aloop index 3' >> /etc/modules
 ```
 
 And type:
@@ -116,7 +118,9 @@ docker build -t docker-spotify .
 11- Setup container
 
 ```
-docker run -d --name spotify --restart always --privileged -p 5800:5800 -p 5900:5900 -p 8080:8080 --device /dev/snd  docker-spotify:latest
+docker run -d --name spotify1 --restart always --privileged -p 5900:5900 --device /dev/snd -e ALSADEV=hw:1,0  docker-spotify:latest
+docker run -d --name spotify2 --restart always --privileged -p 5901:5900 --device /dev/snd -e ALSADEV=hw:2,0  docker-spotify:latest
+docker run -d --name spotify3 --restart always --privileged -p 5902:5900 --device /dev/snd -e ALSADEV=hw:3,0  docker-spotify:latest
 ```
 
 12- Reboot system
